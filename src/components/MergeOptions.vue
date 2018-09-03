@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id='merge-option'>
         {{msg}}
     </div>
 </template>

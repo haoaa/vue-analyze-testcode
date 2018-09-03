@@ -15,6 +15,9 @@ Vue.mixin({
 Vue.component('app')
 /* eslint-disable no-new */
 new Vue({
+  beforeCreate() {
+    console.log('new Vue beforeCreate');
+  },
   el: '#app',
   // components: { App },
   // template: '<App/>'
