@@ -2,22 +2,16 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+import Reactivity from './components/Reactivity'
+
 import MergeOptions from './components/MergeOptions'
 
 Vue.config.productionTip = false
 
-Vue.mixin({
-  created() {
-    console.log('parent created')
-  }
-})
 
-Vue.component('App', App)
+Vue.component('App', Reactivity)
 /* eslint-disable no-new */
 new Vue({
-  beforeCreate() {
-    console.log('new Vue beforeCreate');
-  },
   el: '#app',
   // components: { App },
   template: '<App/>'
