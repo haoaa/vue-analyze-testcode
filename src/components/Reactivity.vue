@@ -22,10 +22,15 @@
     },
     methods: {
       change() {
-        this.msg = 'hello 2'
+        this.msg = new Date()
       },
       toggle() {
-        this.flag = !this.flag
+        this.flag = false
+      }
+    },
+    watch: {
+      msg(v, b) {
+        console.debug(v, b);
       }
     }
   }
