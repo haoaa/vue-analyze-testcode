@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    {{bug}}
     <div v-if="flag">
       {{msg}}
     </div>
@@ -17,12 +18,16 @@
       return {
         flag: true,
         msg: 'Hello',
-        msg1: 'bye'
+        msg1: 'bye',
+        bug: {
+          a:1
+        }
       }
     },
     methods: {
       change() {
-        this.msg = new Date()
+        //this.msg = new Date()
+        this.bug.b = 'xxxx'
       },
       toggle() {
         this.flag = false
