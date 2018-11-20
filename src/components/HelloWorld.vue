@@ -1,7 +1,8 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>{{ massage }}</h1>
     <h2>Essential Links</h2>
+    <button @click="add">click</button>
     <ul>
       <li>
         <a
@@ -88,7 +89,8 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      cnt: 0
     }
   },
   beforeMount() {
@@ -96,6 +98,16 @@ export default {
   },
   mounted() {
     console.log('hello', ' mounted');
+  },
+  methods: {
+    add() {
+      this.cnt++
+    }
+  },
+  computed: {
+    massage() {
+      return this.cnt > 1 ? this.msg : this.msg + this.cnt
+    }
   }
 }
 </script>
