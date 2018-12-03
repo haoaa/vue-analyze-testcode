@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
-    <HelloWorld/>
+    <HelloWorld :toggle="toggle"/>
+    <button @click="toggle = !toggle">toggle it</button>
   </div>
 </template>
 
@@ -10,6 +11,11 @@ import HelloWorld from './components/HelloWorld'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      toggle: false
+    }
+  },
   components: {
     HelloWorld
   },
