@@ -120,7 +120,8 @@ const webpackConfig = merge(baseWebpackConfig, {
         ignore: ['.*']
       }
     ])
-  ]
+  ],
+  stats: {assets: false, depth: true}
 })
 
 if (config.build.productionGzip) {
