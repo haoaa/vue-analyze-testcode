@@ -14,6 +14,17 @@ Vue.component('App', Reactivity)
 new Vue({
   el: '#app',
   // components: { App },
-  template: '<App/>'
+  // template: '<App/>'
   // render: c => c(MergeOptions)
+  render: c=> c('div',
+    {
+      attrs: {
+        id: 'apx'
+      }
+    },
+    [
+      c('span', 'xxxx'),
+      c('em', '1111111')
+    ]
+  )
 })
