@@ -3,28 +3,18 @@
 import Vue from 'vue'
 import App from './App'
 import Reactivity from './components/Reactivity'
-
 import MergeOptions from './components/MergeOptions'
+import Computed from './components/Computed'
+import ComputedWatcher from './components/ComputedWatcher'
 
 Vue.config.productionTip = false
 
 
-Vue.component('App', Reactivity)
+Vue.component('App', ComputedWatcher)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  // components: { App },
-  // template: '<App/>'
+  template: '<App/>'
   // render: c => c(MergeOptions)
-  render: c=> c('div',
-    {
-      attrs: {
-        id: 'apx'
-      }
-    },
-    [
-      c('span', 'xxxx'),
-      c('em', '1111111')
-    ]
-  )
 })
+
