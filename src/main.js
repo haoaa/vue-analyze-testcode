@@ -6,11 +6,12 @@ import Reactivity from './components/Reactivity'
 import MergeOptions from './components/MergeOptions'
 import Computed from './components/Computed'
 import ComputedWatcher from './components/ComputedWatcher'
+import WatcherOption from './components/WatcherOption'
 
 Vue.config.productionTip = false
 
 
-Vue.component('App', ComputedWatcher)
+Vue.component('App', WatcherOption)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
