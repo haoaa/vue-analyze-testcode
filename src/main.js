@@ -7,11 +7,12 @@ import MergeOptions from './components/MergeOptions'
 import Computed from './components/Computed'
 import ComputedWatcher from './components/ComputedWatcher'
 import WatcherOption from './components/WatcherOption'
+import VnodeUpdate from './components/VnodeUpdate'
 
 Vue.config.productionTip = false
 
 
-Vue.component('App', WatcherOption)
+Vue.component('App', VnodeUpdate)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
