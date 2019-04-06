@@ -24,7 +24,18 @@
     },
     methods: {
       change() {
-        this.items.reverse().push({id: 4, val: 'E'})
+        // this.items.reverse().push({id: 4, val: 'E'})
+        // this.items = [
+        //   {id: 0, val: 'A'},
+        //   {id: 2, val: 'C'},
+        //   {id: 3, val: 'D'},
+        //   {id: 1, val: 'B'},
+        //   {id: 4, val: 'E'},
+        // ]
+        this.items = [
+          {id: 3, val: 'D'},
+          {id: 4, val: 'E'},
+        ]
       }
     }
   }

@@ -8,11 +8,12 @@ import Computed from './components/Computed'
 import ComputedWatcher from './components/ComputedWatcher'
 import WatcherOption from './components/WatcherOption'
 import VnodeUpdate from './components/VnodeUpdate'
+import UpdateChildren from './components/UpdateChildren'
 
 Vue.config.productionTip = false
 
 
-Vue.component('App', VnodeUpdate)
+Vue.component('App', UpdateChildren)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
