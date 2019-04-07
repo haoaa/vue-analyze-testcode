@@ -13,11 +13,28 @@ import UpdateChildren from './components/UpdateChildren'
 Vue.config.productionTip = false
 
 
-Vue.component('App', UpdateChildren)
+// Vue.component('App', UpdateChildren)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  template: '<App/>'
-  // render: c => c(MergeOptions)
+  template: `
+  <ul :class="bindClass" class="list" v-if="isShow">
+    <li v-for="(item, index) in data" @click="clickItem(index)">
+      {{item}} - {{index}}
+    </li>
+  </ul>
+  `,
+  data() {
+    return {
+      bindClass: 'a',
+      isShow: true,
+      data: ['A', 'B', 'C', 'D']
+    }
+  },
+  methods: {
+    clickItem(i) {
+      console.log(i)
+    }
+  },  
 })
 
