@@ -17,12 +17,12 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  template: `ssfs
+  template: `
   <ul :class="bindClass" class="list" v-if="isShow">
     <li v-for="(item, index) in data" @click="clickItem(index)">
       {{item}}-{{index}}
     </li>
-    <p>ppp<div>div</div></p>
+    <p>ppp<span>span</span></p>
   </ul>
   `,
   data() {
