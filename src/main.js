@@ -15,27 +15,33 @@ Vue.config.productionTip = false
 
 // Vue.component('App', UpdateChildren)
 /* eslint-disable no-new */
-new Vue({
+let Child = {
+  template: '<button @click="clickHandler($event)">' +
+  'click me' +
+  '</button>',
+  methods: {
+    clickHandler(e) {
+      console.log('Button clicked!', e)
+      this.$emit('select')
+    }
+  }
+}
+
+let vm = new Vue({
   el: '#app',
-  template: `
-  <ul :class="bindClass" class="list" v-if="isShow">
-    <li v-for="(item, index) in data" @click="clickItem(index)">
-      {{item}}-{{index}}
-    </li>
-    <p>ppp<span>span</span></p>
-  </ul>
-  `,
-  data() {
-    return {
-      bindClass: 'a',
-      isShow: true,
-      data: ['A', 'B', 'C', 'D']
+  template: '<div>' +
+  '<child @select="selectHandler" @click.native.prevent="clickHandler"></child>' +
+  '</div>',
+  methods: {
+    clickHandler() {
+      console.log('Child clicked!')
+    },
+    selectHandler() {
+      console.log('Child select!')
     }
   },
-  methods: {
-    clickItem(i) {
-      console.log(i)
-    }
-  },  
+  components: {
+    Child
+  }
 })
 
