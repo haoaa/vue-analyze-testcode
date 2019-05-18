@@ -15,33 +15,16 @@ Vue.config.productionTip = false
 
 // Vue.component('App', UpdateChildren)
 /* eslint-disable no-new */
-let Child = {
-  template: '<button @click="clickHandler($event)">' +
-  'click me' +
-  '</button>',
-  methods: {
-    clickHandler(e) {
-      console.log('Button clicked!', e)
-      this.$emit('select')
-    }
-  }
-}
 
 let vm = new Vue({
   el: '#app',
-  template: '<div>' +
-  '<child @select="selectHandler" @click.native.prevent="clickHandler"></child>' +
+  template: '<div>'
+  + '<input v-model="message" placeholder="edit me">' +
+  '<p>Message is: {{ message }}</p>' +
   '</div>',
-  methods: {
-    clickHandler() {
-      console.log('Child clicked!')
-    },
-    selectHandler() {
-      console.log('Child select!')
+  data() {
+    return {
+      message: ''
     }
-  },
-  components: {
-    Child
   }
 })
-
