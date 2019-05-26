@@ -12,33 +12,31 @@ import UpdateChildren from './components/UpdateChildren'
 
 Vue.config.productionTip = false
 
-
-// Vue.component('App', UpdateChildren)
-/* eslint-disable no-new */
-let Child = {
-  template: '<div>'
-  + '<input :value="value" @input="updateValue" placeholder="edit me">' +
-  '</div>',
-  props: ['value'],
-  methods: {
-    updateValue(e) {
-      this.$emit('input', e.target.value)
-    }
-  }
+let AppLayout = {
+  template: '<div class="container">' +
+  '<header><slot name="header"></slot></header>' +
+  '<main><slot>默认内容</slot></main>' +
+  '<footer><slot name="footer"></slot></footer>' +
+  '</div>'
 }
 
 let vm = new Vue({
   el: '#app',
   template: '<div>' +
-  '<child v-model.lazy="message"></child>' +
-  '<p>Message is: {{ message }}</p>' +
+  '<app-layout>' +
+  '<h1 slot="header">{{title}}</h1>' +
+  '<p>{{msg}}</p>' +
+  '<p slot="footer">{{desc}}</p>' +
+  '</app-layout>' +
   '</div>',
   data() {
     return {
-      message: ''
+      title: '我是标题',
+      msg: '我是内容',
+      desc: '其它信息'
     }
   },
   components: {
-    Child
+    AppLayout
   }
 })
