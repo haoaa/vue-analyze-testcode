@@ -11,28 +11,57 @@ import VnodeUpdate from './components/VnodeUpdate'
 import UpdateChildren from './components/UpdateChildren'
 
 Vue.config.productionTip = false
-let Child = {
-  template: '<div class="child">' +
-  '<slot text="Hello " :msg="msg"></slot>' +
+let A = {
+  template: '<div class="a">' +
+  '<p>A Comp</p>' +
   '</div>',
-  data() {
-    return {
-      msg: 'Vue'
-    }
+  name: 'A',
+  mounted() {
+   console.log('a mounted');
+  },
+  activated() {
+    console.log('a activated');
+  },
+  deactivated() {
+    console.log('a deactivated');
+  }
+}
+
+let B = {
+  template: '<div class="b">' +
+  '<p>B Comp</p>' +
+  '</div>',
+  name: 'B',
+  mounted() {
+    console.log('b mounted');
+  },
+  activated() {
+    console.log('b activated');
+  },
+  deactivated() {
+    console.log('b deactivated');
   }
 }
 
 let vm = new Vue({
   el: '#app',
   template: '<div>' +
-  '<child>' +
-  '<template slot-scope="props">' +
-  '<p>Hello from parent</p>' +
-  '<p>{{ props.text + props.msg}}</p>' +
-  '</template>' +
-  '</child>' +
+  '<keep-alive>' +
+  '<component :is="currentComp">' +
+  '</component>' +
+  '</keep-alive>' +
+  '<button @click="change">switch</button>' +
   '</div>',
+  data: {
+    currentComp: 'A'
+  },
+  methods: {
+    change() {
+      this.currentComp = this.currentComp === 'A' ? 'B' : 'A'
+    }
+  },
   components: {
-    Child
+    A,
+    B
   }
 })
