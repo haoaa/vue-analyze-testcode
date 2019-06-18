@@ -45,23 +45,17 @@ let B = {
 
 let vm = new Vue({
   el: '#app',
-  template: '<div>' +
-  '<keep-alive>' +
-  '<component :is="currentComp">' +
-  '</component>' +
-  '</keep-alive>' +
-  '<button @click="change">switch</button>' +
+  template: '<div id="demo">' +
+  '<button v-on:click="show = !show">' +
+  'Toggle' +
+  '</button>' +
+  '<transition :appear="true" name="fade">' +
+  '<p v-if="show">hello</p>' +
+  '</transition>' +
   '</div>',
-  data: {
-    currentComp: 'A'
-  },
-  methods: {
-    change() {
-      this.currentComp = this.currentComp === 'A' ? 'B' : 'A'
+  data() {
+    return {
+      show: true
     }
-  },
-  components: {
-    A,
-    B
   }
 })
