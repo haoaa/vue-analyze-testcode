@@ -14,6 +14,7 @@ export default {
     HelloWorld
   },
   beforeMount() {
+    this.$el
     console.log('app', ' beforeMount');
   },
   mounted() {

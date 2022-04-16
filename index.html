@@ -12,6 +12,25 @@
     .fade-enter, .fade-leave-to {
       opacity: 0;
     }
+
+    .list-item {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    .list-move {
+      transition: all 1s;
+    }
+    .list-enter-active {
+      transition: all 1s;
+    }
+    .list-leave-active {
+      transition: all 1s;
+      position: absolute;
+    }
+    .list-enter, .list-leave-to {
+      opacity: 0;
+      transform: translateY(30px);
+    }
   </style>
   <body>
     <div id="app" template="true"></div>
