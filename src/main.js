@@ -8,38 +8,54 @@ import Computed from "./components/Computed";
 import ComputedWatcher from "./components/ComputedWatcher";
 import WatcherOption from "./components/WatcherOption";
 import VnodeUpdate from "./components/VnodeUpdate";
-import UpdateChildren from "./components/UpdateChildren";
+import UpdateChildren from "./components/UpdateChildren.vue";
 
 Vue.config.productionTip = false;
 
-let vm = new Vue({
-  el: "#app",
-  template: `
-<div id="list-demo">
-  <button v-on:click="add">Add</button>
-  <button v-on:click="remove">Remove</button>
-  <transition-group name="list" tag="p">
-    <span v-for="item in items" v-bind:key="item" class="list-item">
-      {{ item }}
-    </span>
-  </transition-group>
-</div>`,
-  data: {
-    items: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-    nextNum: 10
+
+new Vue({
+  mounted(){
+    console.log(`pm`);
   },
-  methods: {
-    randomIndex: function() {
-      return Math.floor(Math.random() * this.items.length);
-    },
-    add: function() {
-      this.items.splice(this.randomIndex(), 0, this.nextNum++);
-    },
-    remove: function() {
-      this.items.splice(this.randomIndex(), 1);
-    }
-  }
-});
+  render: h => h(VnodeUpdate),
+}).$mount('#app')
+
+/**
+ * v-transition
+ */
+// let vm = new Vue({
+//   el: "#app",
+//   template: `
+// <div id="list-demo">
+//   <button v-on:click="add">Add</button>
+//   <button v-on:click="remove">Remove</button>
+//   <transition-group name="list" tag="p">
+//     <span v-for="item in items" v-bind:key="item" class="list-item">
+//       {{ item }}
+//     </span>
+//   </transition-group>
+// </div>`,
+//   data: {
+//     items: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+//     nextNum: 10
+//   },
+//   methods: {
+//     randomIndex: function() {
+//       return Math.floor(Math.random() * this.items.length);
+//     },
+//     add: function() {
+//       this.items.splice(this.randomIndex(), 0, this.nextNum++);
+//     },
+//     remove: function() {
+//       this.items.splice(this.randomIndex(), 1);
+//     }
+//   }
+// });
+
+
+/**
+ * v-if
+ */
 // let vm = new Vue({
 //   el: '#app',
 //   template: '<div id="demo">' +
